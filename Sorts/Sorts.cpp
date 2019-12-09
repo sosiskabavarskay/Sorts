@@ -60,8 +60,14 @@ double shake(int* arr) {
 
 void merge(int* arr) {
 	int len = lenarr(arr);
-
-
+	int left = len / 2;
+	int rigth = len - left;
+	int* tmp_left_arr;
+	int* tmp_rigth_arr;
+	tmp_left_arr = new int[left];
+	tmp_rigth_arr = new int[rigth];
+	//Крч для левой части рекурсивно вызываем merge, чтобы она разделила часть на левую и правую
+	//Потом крч надо замутить слияние этих массивов, но бля я спать хочу
 }
 
 int main()
