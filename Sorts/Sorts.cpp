@@ -66,8 +66,7 @@ void merge(int* arr) {
 	int* tmp_rigth_arr;
 	tmp_left_arr = new int[left];
 	tmp_rigth_arr = new int[rigth];
-	//Крч для левой части рекурсивно вызываем merge, чтобы она разделила часть на левую и правую
-	//Потом крч надо замутить слияние этих массивов, но бля я спать хочу
+	
 }
 
 int main()
@@ -79,11 +78,14 @@ int main()
 	cin >> N;
 	int* arr;
 	arr = new int[N];
-	for (int i = 0; i < N; i++) arr[i] = rand() % 50000;
+	for (int i = 0; i < N; i++) arr[i] = rand();
 	//output(arr);
 	//bubble(arr);
 	//shake(arr);	
-	cout << "Кол-во элементов " << N << ", затрачено времени " << choise(arr) << endl;
+	cout << "Выбор, кол-во элементов " << N << ", затрачено времени " << choise(arr) << endl;
+	for (int i = 0; i < N; i++) arr[i] = rand();
+	cout << "Пузырек, кол-во элементов " << N << ", затрачено времени " << bubble(arr) << endl;
+	for (int i = 0; i < N; i++) arr[i] = rand();
+	cout << "Шейкер, кол-во элементов " << N << ", затрачено времени " << shake(arr) << endl;
 	//output(arr);
-
 }
