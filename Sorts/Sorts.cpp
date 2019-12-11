@@ -73,40 +73,23 @@ int main()
 {
 	setlocale(0, "");
 	srand(time(NULL));
-	//cout << "N: ";
-	//int N;
-	//cin >> N;
-
 	double time_ch = 0, time_bu = 0, time_sh = 0;
-	//output(arr);
-	//bubble(arr);
-	//shake(arr);	
-	ofstream out_ch;
-	out_ch.open("C:\\Users\\Максим\\Desktop\\choise_data.txt");
-	ofstream out_bu;
-	out_ch.open("C:\\Users\\Максим\\Desktop\\bubble_data.txt");
-	ofstream out_sh;
-	out_ch.open("C:\\Users\\Максим\\Desktop\\shaker_data.txt");
+	ofstream out;
+	out.open("Text.txt");
 	double n = 10;
 	for (int num = 1000, cntr = 0; num <= 5000; num += 500, cntr++) {
 		double* arr;
 		arr = new double[num];
 		for (int i = 1; i <= n; i++) {
 			for (int i = 0; i < num; i++) arr[i] = double(rand()) / double(10 * rand() % 1000); time_ch += choise(arr);
-			//cout << "Выбор, кол-во элементов " << N << ", затрачено времени " << choise(arr) << endl;
 			for (int i = 0; i < num; i++) arr[i] = double(rand()) / double(10 * rand() % 1000); time_bu += bubble(arr);
-			//cout << "Пузырек, кол-во элементов " << N << ", затрачено времени " << bubble(arr) << endl;
 			for (int i = 0; i < num; i++) arr[i] = double(rand()) / double(10 * rand() % 1000); time_sh += shake(arr);
-			//cout << "Шейкер, кол-во элементов " << N << ", затрачено времени " << shake(arr) << endl;
 		}
 		cout << "Среднее время сортировки выбором для " << num << " элементов: " << time_ch / n << endl;
 		cout << "Среднее время сортировки пузырьком для " << num << " элементов: " << time_bu / n << endl;
 		cout << "Среднее время сортировки шейкером для " << num << " элементов: " << time_sh / n << endl;
-		out_ch << num << " " << time_ch / n << endl;
-		out_bu << num << " " << time_bu / n << endl;
-		out_sh << num << " " << time_sh / n << endl;
+		out << num << " " << time_ch / n << " " << time_bu / n << " " << time_sh / n << endl;
 		delete[] arr;
 	}
-	out_ch.close(); out_bu.close(); out_sh.close();
-	//output(arr);
+	out.close();
 }
